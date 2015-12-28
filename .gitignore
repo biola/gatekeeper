@@ -1,8 +1,13 @@
 # Ignore local config files.
+/config/cas.yml
+/config/database.yml
 /config/mongoid.yml
 
 # Ignore bundler config.
 /.bundle
+
+# Ignore database data files
+/db/*.sqlite3
 
 # Ignore all logfiles and tempfiles.
 /log/*
