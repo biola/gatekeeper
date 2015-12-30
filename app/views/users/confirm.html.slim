@@ -1,5 +1,5 @@
 h1 Email Confirmation
 
 - if @user.confirmed?
-  -# TODO
-  = link_to 'Login to Continue', '#TODO', class: 'btn'
+  - if @return_url
+    = link_to 'Login to Continue', cas_login_url(@return_url), class: 'btn btn-primary'

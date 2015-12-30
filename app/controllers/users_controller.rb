@@ -9,6 +9,8 @@ class UsersController < ApplicationController
 
   def new
     @user = NonBiolan.new
+
+    session[:return_url] = params[:return] if params[:return].present?
   end
 
   def create
@@ -36,10 +38,14 @@ class UsersController < ApplicationController
 
     if @user.confirmed?
       flash.now[:alert] = 'Your email address has already been confirmed.'
-    elsif @user.confirmation_key == params[:confirmation_key]
+    elsif @user.confirmation_key == params[:key]
       @user.update! confirmed: true
       log_in @user
       flash.now[:notice] = "Your email address #{@user.email} has been confirmed."
+
+      if session[:return_url].present?
+        @return_url = session.delete(:return_url)
+      end
     else
       flash.now[:alert] = 'Could not confirm your email address. Invalid confirmation key.'
     end

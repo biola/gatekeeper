@@ -10,6 +10,14 @@ GIT
       phpass-ruby (~> 0.1)
       unix-crypt (~> 1.1)
 
+PATH
+  remote: ../gems/rack-cas
+  specs:
+    rack-cas (0.11.1)
+      addressable (~> 2.3)
+      nokogiri (~> 1.5)
+      rack (~> 1.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -48,7 +56,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-    addressable (2.3.8)
+    addressable (2.4.0)
     arel (6.0.3)
     autoprefixer-rails (6.1.2)
       execjs
@@ -70,7 +78,7 @@ GEM
     bson (4.0.0)
     builder (3.2.2)
     byebug (8.2.1)
-    casino (4.0.2)
+    casino (4.0.3)
       addressable (~> 2.3)
       faraday (~> 0.8)
       grape (~> 0.8)
@@ -85,15 +93,19 @@ GEM
     coderay (1.1.0)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
-    coffee-rails (4.1.0)
+    coffee-rails (4.1.1)
       coffee-script (>= 2.2.0)
-      railties (>= 4.0.0, < 5.0)
+      railties (>= 4.0.0, < 5.1.x)
     coffee-script (2.4.1)
       coffee-script-source
       execjs
     coffee-script-source (1.10.0)
     concurrent-ruby (1.0.0)
+    config (1.0.0)
+      activesupport (>= 3.0)
+      deep_merge (~> 1.0.0)
     debug_inspector (0.0.2)
+    deep_merge (1.0.1)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
     equalizer (0.0.11)
@@ -105,7 +117,7 @@ GEM
       railties (>= 3.2, < 5.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
-    grape (0.13.0)
+    grape (0.14.0)
       activesupport
       builder
       hashie (>= 2.1.0)
@@ -115,7 +127,7 @@ GEM
       rack-accept
       rack-mount
       virtus (>= 1.0.0)
-    grape-entity (0.4.8)
+    grape-entity (0.5.0)
       activesupport
       multi_json (>= 1.3.2)
     hashie (3.4.3)
@@ -131,12 +143,13 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    method_source (0.8.2)
     mime-types (2.99)
     mini_portile2 (2.0.0)
     minitest (5.8.3)
-    mongo (2.2.0)
+    mongo (2.2.1)
       bson (~> 4.0)
-    mongoid (5.0.1)
+    mongoid (5.0.2)
       activemodel (~> 4.0)
       mongo (~> 2.1)
       origin (~> 2.1)
@@ -145,10 +158,14 @@ GEM
     multi_json (1.11.2)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
-    nokogiri (1.6.7)
+    nokogiri (1.6.7.1)
       mini_portile2 (~> 2.0.0.rc2)
     origin (2.1.1)
     phpass-ruby (0.1.2)
+    pry (0.10.3)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
     rack (1.6.4)
     rack-accept (0.4.5)
       rack (>= 0.4)
@@ -183,8 +200,8 @@ GEM
     rake (10.4.2)
     ref (2.0.0)
     rotp (2.1.1)
-    rqrcode (0.7.0)
-      chunky_png
+    rqrcode (0.8.0)
+      chunky_png (~> 1.0)
     rqrcode_png (0.1.5)
       chunky_png
       rqrcode
@@ -198,14 +215,15 @@ GEM
     slim (3.0.6)
       temple (~> 0.7.3)
       tilt (>= 1.3.3, < 2.1)
-    spring (1.6.0)
+    slop (3.6.0)
+    spring (1.6.1)
     sprockets (3.5.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
-    sprockets-rails (2.3.3)
-      actionpack (>= 3.0)
-      activesupport (>= 3.0)
-      sprockets (>= 2.8, < 4.0)
+    sprockets-rails (3.0.0)
+      actionpack (>= 4.0)
+      activesupport (>= 4.0)
+      sprockets (>= 3.0.0)
     sqlite3 (1.3.11)
     temple (0.7.6)
     terminal-table (1.5.2)
@@ -221,7 +239,7 @@ GEM
       execjs (>= 0.3.0)
       json (>= 1.8.0)
     unix-crypt (1.3.0)
-    useragent (0.16.1)
+    useragent (0.16.3)
     virtus (1.0.5)
       axiom-types (~> 0.1)
       coercible (~> 1.0)
@@ -244,9 +262,12 @@ DEPENDENCIES
   casino
   casino-moped_authenticator!
   coffee-rails (~> 4.1.0)
+  config
   font-awesome-rails
   jquery-rails
   mongoid
+  pry
+  rack-cas!
   rails (= 4.2.5)
   sass-rails (~> 5.0)
   slim
