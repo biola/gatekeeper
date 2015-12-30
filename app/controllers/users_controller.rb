@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 
   def create
     if @user = NonBiolan.create(user_params)
-      # TODO: send an email
+      UserMailer.email_confirmation(@user).deliver_now
       log_in @user
       redirect_to user_path(@user)
     else

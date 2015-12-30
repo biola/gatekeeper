@@ -1,2 +1,8 @@
+app:
+  host: accounts.biola.edu
+
 cas:
   url: "https://login.biola.edu/cas"
+
+email:
+  from: no-reply@biola.edu

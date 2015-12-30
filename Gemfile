@@ -27,6 +27,7 @@ end
 
 group :development do
   gem 'better_errors'
+  gem 'letter_opener'
   gem 'pry'
   gem 'spring'
   gem 'web-console', '~> 2.0'
