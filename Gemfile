@@ -9,15 +9,13 @@ gem 'casino-moped_authenticator', github: 'adamcrown/casino-moped_authenticator'
 gem 'sqlite3'
 
 gem 'bcrypt', '~> 3.1.7'
-gem 'bootstrap-sass'
+gem 'biola_frontend_toolkit'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'config'
-gem 'font-awesome-rails'
 gem 'jquery-rails'
 gem 'mongoid'
 gem 'rack-cas', path: '../gems/rack-cas'
 gem 'sass-rails', '~> 5.0'
-gem 'slim'
 gem 'therubyracer', platforms: :ruby
 gem 'uglifier', '>= 1.3.0'
 

@@ -1,0 +1,53 @@
+@import "bootstrap/variables";
+
+//===============================================
+// Colors
+//===============================================
+$color-biola-red: #CC1122;
+$color-font-light: #EEE;
+$color-bg-light: #E6E6E6;
+$color-bg-dark: #222;
+
+$border-color:#CCC; // Default border color
+
+$link-color-light:lighten($link-color, 10); // For use on dark backgrounds
+$link-hover-color-light:lighten($link-color, 25);
+
+
+//===============================================
+// Font Families
+//===============================================
+$proxima-nova: 'proxima-nova', Helvetica, Arial, sans-serif;
+$helvetica: Helvetica, Arial, sans-serif;
+$minion-pro: 'minion-pro', Times, 'Times New Roman', serif;
+
+
+//===============================================
+// Bootstrap variable customizations
+//===============================================
+// Typography
+//-----------------------------------------------
+$font-size-base: 15px;
+$headings-font-family: $proxima-nova;
+$headings-font-weight: bold;
+
+// Buttons
+//-----------------------------------------------
+$btn-border-radius-large:$border-radius-base;
+
+// Grid System
+//-----------------------------------------------
+// Point at which the navbar becomes uncollapsed.
+$grid-float-breakpoint: $screen-md-min;
+// Point at which the navbar begins collapsing.
+$grid-float-breakpoint-max: ($grid-float-breakpoint - 1);
+
+// Panels
+//-----------------------------------------------
+$panel-default-border:$border-color;
+
+// Type
+//-----------------------------------------------
+$hr-border:$border-color;
+$blockquote-font-size:$font-size-base * 1.05;
+$blockquote-border-color:$border-color;

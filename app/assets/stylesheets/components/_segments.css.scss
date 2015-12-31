@@ -1,0 +1,16 @@
+.page-segment {
+  padding:40px 0;
+}
+
+.segment-bold {
+  background-color:$color-biola-red;
+  color:#DDD;
+  a {
+    color:#FFF;
+    text-decoration:underline;
+    &:hover,
+    &:focus {
+      text-decoration:none;
+    }
+  }
+}

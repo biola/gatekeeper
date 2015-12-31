@@ -1,3 +1,6 @@
-h1 Please Corfirm Your Email Address
+.page-segment
+  .container
+    .row
+      h2 Please Corfirm Your Email Address
 
-p An email has been sent to #{current_user.email}. Please check your inbox to complete your registration.
+      p An email has been sent to #{mail_to(current_user.email, current_user.email)}. Please check your inbox to complete your registration.

@@ -1,15 +1,28 @@
-h1 Create an Account
+.page-segment
+  .container
+    .row
+      .col-sm-6
+        h2 Login
+        .text-center
+          | TODO
+      .col-sm-6
+        h2 Create Account
+        = form_for @user, url: users_path do |f|
+          .form-group
+            = f.label :first_name
+            = f.text_field :first_name, class: 'form-control'
+          .form-group
+            = f.label :last_name
+            = f.text_field :last_name, class: 'form-control'
+          .form-group
+            = f.label :email
+            = f.email_field :email, class: 'form-control'
+          .form-group
+            = f.label :password do
+              ' Password
+              small.text-muted twice
+            =' f.password_field :password, class: 'form-control'
+          .form-group
+            = f.password_field :password_confirmation, class: 'form-control'
 
-= form_for @user, url: users_path do |f|
-  = f.label :first_name
-  = f.text_field :first_name
-  = f.label :last_name
-  = f.text_field :last_name
-  = f.label :email
-  = f.email_field :email
-  = f.label :password
-  = f.password_field :password
-  = f.label :password_confirmation
-  = f.password_field :password_confirmation
-
-  = f.submit 'Create Account'
+          = f.submit 'Create Account', class: 'btn btn-primary'

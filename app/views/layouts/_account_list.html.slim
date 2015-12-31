@@ -1,0 +1,17 @@
+/ This file will provide the frontend toolkit with a dropdown list
+/   if you are authenticated when you click the user icon in the top right.
+
+- if current_user
+  - content_for :account_list do
+    li
+      = link_to user_path(current_user) do
+        i.fa.fa-user>
+        | Edit Account Info
+    li
+      = link_to user_path(current_user) do
+        i.fa.fa-key>
+        | Change Password
+    li
+      = link_to logout_path do
+        i.fa.fa-power-off>
+        | Logout

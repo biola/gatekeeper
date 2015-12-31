@@ -72,6 +72,12 @@ GEM
       rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    biola_frontend_toolkit (0.4.4)
+      bootstrap-sass (~> 3.1)
+      coffee-rails (~> 4.0)
+      font-awesome-rails (~> 4.2)
+      sass-rails (>= 4.0)
+      slim (>= 2.0)
     bootstrap-sass (3.3.6)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
@@ -261,13 +267,12 @@ PLATFORMS
 DEPENDENCIES
   bcrypt (~> 3.1.7)
   better_errors
-  bootstrap-sass
+  biola_frontend_toolkit
   byebug
   casino
   casino-moped_authenticator!
   coffee-rails (~> 4.1.0)
   config
-  font-awesome-rails
   jquery-rails
   letter_opener
   mongoid
@@ -275,7 +280,6 @@ DEPENDENCIES
   rack-cas!
   rails (= 4.2.5)
   sass-rails (~> 5.0)
-  slim
   spring
   sqlite3
   therubyracer

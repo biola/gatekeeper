@@ -12,3 +12,23 @@
  *
  *= require_self
  */
+
+@import "variables";
+@import "components/*";
+@import "biola-frontend-toolkit";
+
+#biolaHeader .login-link {
+  display: none;
+}
+
+.site-title {
+  font-weight: normal;
+  margin-top:($line-height-computed * 0.5);
+  a { text-decoration: none; }
+  a:hover { color: white; text-decoration: underline; }
+}
+
+.field_with_errors .form-control{
+  color: $color-biola-red;
+  border-color: $color-biola-red;
+}

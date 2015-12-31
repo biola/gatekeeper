@@ -1,0 +1,34 @@
+doctype html
+html lang="en-us"
+  head
+    title Accounts
+    / frontend_toolkit/head includes default html head tags and csrf_meta_tags
+    = render 'frontend_toolkit/head', title: 'Accounts'
+    = stylesheet_link_tag 'application', media: 'all'
+
+  body class="#{controller_name} #{action_name}"
+    = render 'layouts/account_list'
+    = render 'frontend_toolkit/biola_header', enable_auth: true
+
+    #site_header
+      .page-segment.segment-bold style="padding: 10px 0"
+        .container
+          .row
+            .col-sm-6
+              h1.site-title
+                = link_to Settings.app.name, root_url
+              p.lead style="color: #fff;" Manage your Biola University account
+
+      .wrapper-site
+        - if flash[:notice]
+          .alert.alert-info
+            = fa_icon 'info-circle', text: flash[:notice]
+        - if flash[:alert]
+          .alert.alert-danger
+            = fa_icon 'warning', text: flash[:alert]
+
+        = yield
+
+      = render 'frontend_toolkit/global_marketing_footer'
+
+      = javascript_include_tag 'application'
