@@ -1,11 +1,19 @@
 .page-segment
   .container
     .row
-      .col-sm-6
+      .col-sm-5
         h2 Login
-        .text-center
-          | TODO
-      .col-sm-6
+        = form_tag sessions_path do
+          .form-group
+            = label_tag :email
+            = text_field_tag 'session[email]', flash[:login_email], id: :email, class: 'form-control'
+          .form-group
+            = label_tag :password
+            = password_field_tag 'session[password]', nil, id: :password, class: 'form-control'
+          = submit_tag 'Login', class: 'btn btn-primary'
+      .col-sm-2
+        span.or or
+      .col-sm-5
         h2 Create Account
         = form_for @user, url: users_path do |f|
           .form-group
