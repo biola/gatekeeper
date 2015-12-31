@@ -1,13 +1,11 @@
 class NonBiolan < User
   include ActiveModel::SecurePassword
 
-  has_secure_password
-
   field :password_digest, type: String
   field :confirmation_key, type: String
   field :confirmed, type: Boolean
 
-  validates :password_digest, presence: true
+  has_secure_password
 
   # TODO: validate not an @biola.edu email
 

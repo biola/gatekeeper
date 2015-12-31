@@ -8,13 +8,18 @@ class UsersController < ApplicationController
   end
 
   def new
+    if current_user.present?
+      redirect_to user_path(current_user)
+    end
     @user = NonBiolan.new
 
     session[:return_url] = params[:return] if params[:return].present?
   end
 
   def create
-    if @user = NonBiolan.create(user_params)
+    @user = NonBiolan.new(user_params)
+
+    if @user.save
       UserMailer.email_confirmation(@user).deliver_now
       log_in @user
       redirect_to user_path(@user)
@@ -66,6 +71,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:non_biolan).permit :first_name, :last_name, :email, :password
+    params.require(:non_biolan).permit :first_name, :last_name, :email, :password, :password_confirmation
   end
 end
