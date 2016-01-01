@@ -22,6 +22,8 @@ html lang="en-us"
       .wrapper-site
         - all_messages.each do |message|
           .alert class="alert-#{message.type}"
+            button.close type="button" data-dismiss="alert"
+              span &times;
             = fa_icon message.icon, text: message.text
 
         = yield
