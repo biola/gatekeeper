@@ -16,6 +16,7 @@ gem 'jquery-rails'
 gem 'madgab'
 gem 'mongoid'
 gem 'rack-cas'
+gem 'rack-ssl'
 gem 'sass-rails', '~> 5.0'
 gem 'therubyracer', platforms: :ruby
 gem 'uglifier', '>= 1.3.0'
