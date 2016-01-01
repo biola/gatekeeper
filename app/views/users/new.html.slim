@@ -10,6 +10,7 @@
           .form-group
             = label_tag :password
             = password_field_tag 'session[password]', nil, id: :password, class: 'form-control'
+            = link_to 'Forgot password?', forgot_password_path
           = submit_tag 'Login', class: 'btn btn-primary'
       .col-sm-2
         span.or or
