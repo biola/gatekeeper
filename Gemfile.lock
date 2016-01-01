@@ -70,6 +70,8 @@ GEM
       font-awesome-rails (~> 4.2)
       sass-rails (>= 4.0)
       slim (>= 2.0)
+    biola_logs (0.1.0)
+      lograge (~> 0.3)
     bootstrap-sass (3.3.6)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
@@ -141,6 +143,10 @@ GEM
     letter_opener (1.4.1)
       launchy (~> 2.2)
     libv8 (3.16.14.13)
+    lograge (0.3.5)
+      actionpack (>= 3)
+      activesupport (>= 3)
+      railties (>= 3)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     madgab (0.0.2)
@@ -270,6 +276,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   better_errors
   biola_frontend_toolkit
+  biola_logs
   byebug
   casino
   casino-moped_authenticator!

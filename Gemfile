@@ -10,6 +10,7 @@ gem 'sqlite3'
 
 gem 'bcrypt', '~> 3.1.7'
 gem 'biola_frontend_toolkit'
+gem 'biola_logs'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'config'
 gem 'jquery-rails'
