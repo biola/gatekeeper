@@ -10,14 +10,6 @@ GIT
       phpass-ruby (~> 0.1)
       unix-crypt (~> 1.1)
 
-PATH
-  remote: ../gems/rack-cas
-  specs:
-    rack-cas (0.11.1)
-      addressable (~> 2.3)
-      nokogiri (~> 1.5)
-      rack (~> 1.3)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -180,6 +172,10 @@ GEM
     rack (1.6.4)
     rack-accept (0.4.5)
       rack (>= 0.4)
+    rack-cas (0.12.0)
+      addressable (~> 2.3)
+      nokogiri (~> 1.5)
+      rack (~> 1.3)
     rack-mount (0.8.3)
       rack (>= 1.0.0)
     rack-test (0.6.3)
@@ -279,7 +275,7 @@ DEPENDENCIES
   madgab
   mongoid
   pry
-  rack-cas!
+  rack-cas
   rails (= 4.2.5)
   sass-rails (~> 5.0)
   spring

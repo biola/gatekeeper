@@ -15,7 +15,7 @@ gem 'config'
 gem 'jquery-rails'
 gem 'madgab'
 gem 'mongoid'
-gem 'rack-cas', path: '../gems/rack-cas'
+gem 'rack-cas'
 gem 'sass-rails', '~> 5.0'
 gem 'therubyracer', platforms: :ruby
 gem 'uglifier', '>= 1.3.0'
