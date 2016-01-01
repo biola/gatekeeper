@@ -5,8 +5,8 @@ class SessionsController < ApplicationController
     user = User.active.where(email: session_params[:email]).first
 
     if user && user.authenticate(session_params[:password])
-      session[:user_id] = user.id
-      redirect_to user_path(user), notice: "You've been logged in"
+      login! user
+      redirect_to user_path, notice: "You've been logged in"
     else
       flash[:login_email] = session_params[:email]
       redirect_to new_user_path, alert: "Invalid email or password"

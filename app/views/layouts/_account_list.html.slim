@@ -4,11 +4,11 @@
 - if current_user
   - content_for :account_list do
     li
-      = link_to user_path(current_user) do
+      = link_to user_path do
         i.fa.fa-user>
         | Edit Account Info
     li
-      = link_to user_path(current_user) do
+      = link_to user_path do
         i.fa.fa-key>
         | Change Password
     li
