@@ -32,3 +32,7 @@ group :development do
   gem 'spring'
   gem 'web-console', '~> 2.0'
 end
+
+group :production do
+  gem 'turnout'
+end
