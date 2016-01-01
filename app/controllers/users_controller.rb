@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  include Session
+
   def show
     load_user
 
@@ -35,7 +37,11 @@ class UsersController < ApplicationController
   def update
     load_user
 
-    # TODO
+    if @user.update user_params
+      redirect_to edit_user_path(@user), notice: 'Changes saved'
+    else
+      render :edit
+    end
   end
 
   def confirm
@@ -57,7 +63,14 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    # TODO
+    load_user
+
+    if @user.update deleted: true
+      logout!
+      redirect_to root_url, notice: 'Account deleted'
+    else
+      redirect_to edit_user_path(@user), alert: 'Unable to delete account'
+    end
   end
 
   private

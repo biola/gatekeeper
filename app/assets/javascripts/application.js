@@ -11,3 +11,4 @@
 // about supported directives.
 //
 //= require biola-frontend-toolkit
+//= require_tree ./resources

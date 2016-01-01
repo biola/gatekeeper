@@ -20,12 +20,9 @@ html lang="en-us"
               p.lead style="color: #fff;" Manage your Biola University account
 
       .wrapper-site
-        - if flash[:notice]
-          .alert.alert-info
-            = fa_icon 'info-circle', text: flash[:notice]
-        - if flash[:alert]
-          .alert.alert-danger
-            = fa_icon 'warning', text: flash[:alert]
+        - all_messages.each do |message|
+          .alert class="alert-#{message.type}"
+            = fa_icon message.icon, text: message.text
 
         = yield
 

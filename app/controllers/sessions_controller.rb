@@ -1,6 +1,8 @@
 class SessionsController < ApplicationController
+  include Session
+
   def create
-    user = User.where(email: session_params[:email]).first
+    user = User.active.where(email: session_params[:email]).first
 
     if user && user.authenticate(session_params[:password])
       session[:user_id] = user.id
@@ -12,8 +14,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:user_id] = nil
-    # TODO: check for and handle cas authentication
+    logout!
     redirect_to root_url, notice: "You've been logged out"
   end
 

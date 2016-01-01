@@ -1,16 +1,20 @@
-body.users.new {
-  span.or {
-    display: block;
-    text-align: center;
-    color: #aaa;
-    font-size: 50px;
+body.users {
+  &.new, &.create {
+    span.or {
+      display: block;
+      text-align: center;
+      color: #aaa;
+      font-size: 50px;
+    }
   }
 }
 
 @media (min-width: 764px) {
-  body.users.new {
-    span.or {
-      padding-top: 220px;
+  body.users {
+    &.new, &.create {
+      span.or {
+        padding-top: 200px;
+      }
     }
   }
 }

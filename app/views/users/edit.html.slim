@@ -3,7 +3,30 @@
     .row
       .col-md-6
         h2 Edit Account Info
-        | TODO
+        = form_for @user, url: user_path(@user) do |f|
+          .form-group
+            = f.label :first_name
+            = f.text_field :first_name, class: 'form-control'
+          .form-group
+            = f.label :last_name
+            = f.text_field :last_name, class: 'form-control'
+          .form-group
+            = f.label :email
+            #email_warning.alert.alert-warning style="display: none;"
+              i.fa.fa-warning>
+              | Changing your email may cause loss off data in other Biola applications
+            = f.text_field :email, class: 'form-control'
+          = f.submit 'Save', class: 'btn btn-primary'
       .col-md-6
         h2 Change Password
-        | TODO
+        = form_for @user, url: user_path(@user) do |f|
+          .form-group
+            = f.label :password
+            = f.password_field :password, class: 'form-control'
+          .form-group
+            = f.label :password_confirmation
+            = f.password_field :password_confirmation, class: 'form-control'
+          = f.submit 'Save', class: 'btn btn-primary'
+
+        h2 Delete Account
+        = link_to 'Delete Account', user_path(@user), method: :delete, class: 'btn btn-danger', data: {confirm: 'Permanently delete account?'}
