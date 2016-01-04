@@ -7,3 +7,6 @@ cas:
 
 email:
   from: no-reply@biola.edu
+
+sentry:
+  url: # Set in settings.local.yml

@@ -37,4 +37,5 @@ end
 
 group :production do
   gem 'turnout'
+  gem 'sentry-raven'
 end
