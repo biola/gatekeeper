@@ -2,6 +2,8 @@ class SessionsController < ApplicationController
   include Session
 
   def create
+    authorize session
+
     user = User.active.where(email: session_params[:email]).first
 
     if user && user.authenticate(session_params[:password])
@@ -14,6 +16,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    authorize session
     logout!
     redirect_to root_url, notice: "You've been logged out"
   end
@@ -22,5 +25,9 @@ class SessionsController < ApplicationController
 
   def session_params
     params.require(:session).permit :email, :password
+  end
+
+  def policy(order)
+    SessionPolicy.new(current_user, session)
   end
 end

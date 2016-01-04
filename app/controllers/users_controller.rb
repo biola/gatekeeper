@@ -4,22 +4,27 @@ class UsersController < ApplicationController
   def show
     load_user
 
+    authorize @user
+
     if @user.confirmed?
       redirect_to edit_user_path
     end
   end
 
   def new
-    if current_user.present?
-      redirect_to user_path
-    end
+    redirect_to(user_path) if current_user.present?
+
     @user = NonBiolan.new
+
+    authorize @user
 
     session[:return_url] = params[:return] if params[:return].present?
   end
 
   def create
     @user = NonBiolan.new(user_params)
+
+    authorize @user
 
     if @user.save
       UserMailer.email_confirmation(@user).deliver_now
@@ -32,10 +37,13 @@ class UsersController < ApplicationController
 
   def edit
     load_user
+    authorize @user
   end
 
   def update
     load_user
+
+    authorize @user
 
     if @user.update user_params
       redirect_to edit_user_path, notice: 'Changes saved'
@@ -46,6 +54,8 @@ class UsersController < ApplicationController
 
   def confirm
     @user = User.where(confirmation_key: params[:key]).first
+
+    authorize @user
 
     if @user.nil?
       flash.now.alert = 'Could not confirm your email address. Invalid confirmation key.'
@@ -65,6 +75,8 @@ class UsersController < ApplicationController
   def destroy
     load_user
 
+    authorize @user
+
     if @user.update deleted: true
       logout!
       redirect_to root_url, notice: 'Account deleted'
@@ -81,5 +93,9 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:non_biolan).permit :first_name, :last_name, :email, :password, :password_confirmation
+  end
+
+  def policy(user)
+    UserPolicy.new(current_user, user)
   end
 end
