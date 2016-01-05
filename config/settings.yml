@@ -7,6 +7,8 @@ cas:
 
 email:
   from: no-reply@biola.edu
+  smtp:
+    server: postfix.biola.edu
 
 sentry:
   url: # Set in settings.local.yml
