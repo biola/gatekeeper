@@ -37,7 +37,10 @@ group :development do
   gem 'web-console', '~> 2.0'
 end
 
-group :production do
+group :staging, :production do
   gem 'turnout'
+end
+
+group :production do
   gem 'sentry-raven'
 end
