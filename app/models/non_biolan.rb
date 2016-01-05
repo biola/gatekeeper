@@ -7,6 +7,7 @@ class NonBiolan < User
 
   has_secure_password
 
+  validates :password, length: {minimum: Settings.password.min_length}, allow_nil: true
   # TODO: validate not an @biola.edu email
 
   before_create :set_confirmation_key

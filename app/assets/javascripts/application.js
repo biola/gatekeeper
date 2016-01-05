@@ -11,4 +11,5 @@
 // about supported directives.
 //
 //= require biola-frontend-toolkit
+//= require zxcvbn
 //= require_tree ./resources

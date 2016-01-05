@@ -12,3 +12,6 @@ email:
 
 sentry:
   url: # Set in settings.local.yml
+
+password:
+  min_length: 8
