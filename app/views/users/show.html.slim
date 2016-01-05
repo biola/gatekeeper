@@ -4,3 +4,5 @@
       h2 Please Corfirm Your Email Address
 
       p An email has been sent to #{mail_to(current_user.email, current_user.email)}. Please check your inbox to complete your registration.
+
+      = link_to 'Resend Confirmation Email', resend_confirmation_path, class: 'btn btn-default btn-sm'
