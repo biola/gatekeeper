@@ -13,7 +13,6 @@ if $('body.users').length > 0
 prog_bar = $('.progress-bar')
 if prog_bar.length > 0
   pass_box = $('#non_biolan_password')
-  pass_conf_box = $('#non_biolan_password_confirmation')
 
   description_map = {
     0: 'very weak'

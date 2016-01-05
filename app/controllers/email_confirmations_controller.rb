@@ -24,7 +24,7 @@ class EmailConfirmationsController < ApplicationController
   def resend
     authorize current_user
     UserMailer.email_confirmation(current_user).deliver_now
-    redirect_to user_path(current_user), notice: "Password confirmation sent to #{current_user.email}"
+    redirect_to user_path, notice: "Password confirmation sent to #{current_user.email}"
   end
 
   private
