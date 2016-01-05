@@ -172,6 +172,8 @@ GEM
       mini_portile2 (~> 2.0.0.rc2)
     origin (2.1.1)
     phpass-ruby (0.1.2)
+    pinglish (0.2.1)
+      rack
     pry (0.10.3)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -292,6 +294,7 @@ DEPENDENCIES
   madgab
   mongoid
   newrelic_rpm
+  pinglish
   pry
   pundit
   rack-cas
