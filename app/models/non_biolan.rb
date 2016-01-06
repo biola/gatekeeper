@@ -12,6 +12,14 @@ class NonBiolan < User
 
   before_create :set_confirmation_key
 
+  def unconfirmed?
+    !confirmed?
+  end
+
+  def active?
+    !deleted? && confirmed?
+  end
+
   private
 
   def set_confirmation_key

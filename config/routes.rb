@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
   mount CASino::Engine => '/cas', :as => 'casino'
 
+  namespace :admin do
+    resources :users, except: [:new, :create]
+
+    root to: 'users#index'
+  end
+
   resource :user
   get 'create', to: 'users#new'
 

@@ -2,6 +2,9 @@ app:
   name: Accounts
   host: accounts.biola.edu
 
+users:
+  new_before: 2592000 # 30 days
+
 cas:
   url: "https://login.biola.edu/cas"
 
@@ -15,3 +18,7 @@ sentry:
 
 password:
   min_length: 8
+
+urn_namespaces:
+  - "urn:biola:apps:gatekeeper:"
+  - "urn:biola:apps:all:"

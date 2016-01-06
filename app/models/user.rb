@@ -1,5 +1,6 @@
 class User
   include Mongoid::Document
+  include Mongoid::Timestamps
 
   # We don't need a complicated email matcher since we confirm the email on the
   # account anyway but it's good to make sure up front that people don't try to
@@ -28,6 +29,18 @@ class User
   before_save :set_uuid
 
   scope :active, -> { where(:deleted.ne => true) }
+
+  def name
+    [first_name, last_name].reject(&:blank?).join (' ')
+  end
+
+  def active?
+    !deleted?
+  end
+
+  def new?
+    created_at.to_i > (Time.now - Settings.users.new_before).to_i
+  end
 
   private
 

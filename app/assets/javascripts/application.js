@@ -13,3 +13,6 @@
 //= require biola-frontend-toolkit
 //= require zxcvbn
 //= require_tree ./resources
+//= require_self
+
+$('[data-toggle=tooltip]').tooltip();

@@ -1,7 +1,7 @@
 / This file will provide the frontend toolkit with a dropdown list
 /   if you are authenticated when you click the user icon in the top right.
 
-- if current_user
+- if current_user.is_a? NonBiolan
   - content_for :account_list do
     li
       = link_to user_path do
@@ -15,3 +15,8 @@
       = link_to destroy_session_path do
         i.fa.fa-power-off>
         | Logout
+- else
+  - content_for :account_list do
+    li = link_to cas_logout_path do
+      i.fa.fa-power-off>
+      | Logout

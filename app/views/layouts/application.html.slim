@@ -16,8 +16,9 @@ html lang="en-us"
           .row
             .col-sm-6
               h1.site-title
-                = link_to Settings.app.name, root_url
-              p.lead style="color: #fff;" Manage your Biola University account
+                = link_to title, title_url
+              - if subtitle
+                p.lead style="color: #fff;" = subtitle
 
       .wrapper-site
         - all_messages.each do |message|

@@ -1,0 +1,30 @@
+.page-segment
+  .container
+    .row
+      h2 Users
+
+      table.table.table-stripped
+        tr
+          th Name
+          th Email
+          th Status
+        - @users.each do |user|
+          tr
+            td = link_to user.name, admin_user_path(user)
+            td = user.email
+            td
+              - if user.active?
+                span.text-success> title="Active" data-toggle="tooltip"
+                  = fa_icon 'check'
+
+              - if user.new?
+                span.text-warning> title="New user" data-toggle="tooltip"
+                  = fa_icon 'star-o'
+
+              - if user.unconfirmed?
+                span.text-info> title="Email not yet confirmed" data-toggle="tooltip"
+                  = fa_icon 'envelope-o'
+
+              - if user.deleted?
+                span.text-danger> title="Deleted" data-toggle="tooltip"
+                  = fa_icon 'trash-o'

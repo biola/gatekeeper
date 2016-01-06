@@ -1,0 +1,42 @@
+.page-segment
+  .container
+    .row
+      .col-md-12
+        h2 Edit #{@user.name}
+    .row
+      .col-md-6
+
+        = form_for @user, url: admin_user_path(@user) do |f|
+          .form-group
+            = f.label :first_name
+            = f.text_field :first_name, class: 'form-control'
+
+          .form-group
+            = f.label :last_name
+            = f.text_field :last_name, class: 'form-control'
+
+          .form-group
+            = f.label :email
+            = f.email_field :email, class: 'form-control'
+
+          .form-group
+            = f.label :password do
+              ' Password
+              small.text-muted twice
+            .row
+              .col-sm-6
+                = f.password_field :password, class: 'form-control'
+              .col-sm-6
+                = f.password_field :password_confirmation, class: 'form-control'
+
+            strong Password strengeth
+            .progress
+              .progress-bar role="progressbar" style="width: 0%;"
+                | very weak
+
+          .form-group
+            => f.check_box :confirmed
+            = f.label :confirmed, 'Email confirmed'
+
+          .buttons
+            = f.submit 'Update User', class: 'btn btn-primary'
