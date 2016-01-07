@@ -1,0 +1,13 @@
+.search_form {
+  .search_input { position: relative; margin-bottom: 15px; background-color: white;
+    i.fa-search { position: absolute; font-size: 20px; top: 15px; left: 18px; color: #aaa; }
+    input { width: 100%; border: none; outline: none; padding: 10px 20px 10px 50px; font-size: 20px; background: none; border: 1px solid #ccc;
+      -webkit-appearance: none; border-radius: 0; // For iOS
+      color: #333;
+    }
+  }
+
+  &.form-top-margin {
+    .search_input { margin-top: 10px; }
+  }
+}

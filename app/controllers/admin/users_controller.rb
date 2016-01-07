@@ -1,6 +1,32 @@
 class Admin::UsersController < Admin::ApplicationController
   def index
-    @users = policy_scope(NonBiolan).asc(:last_name, :first_name).page(params[:page])
+    users = policy_scope(User).all
+
+    if params[:q]
+      begin
+        regex = Regexp.new(params[:q].gsub(/\s/, '.*'), Regexp::IGNORECASE)
+        ids = User.collection.aggregate([
+          {:$project =>
+            {
+              uuid: '$uuid',
+              email: '$email',
+              full_name: {:$concat => ['$first_name', ' ', '$last_name']}
+            }
+          },
+          {:$match => {:$or => [
+            {uuid: regex},
+            {email: regex},
+            {full_name: regex}
+          ]}}
+        ]).map { |p| p[:_id] }
+
+        users = policy_scope(User).where(:id.in => ids)
+      rescue RegexpError
+        users = User.none
+      end
+    end
+
+    @users = users.asc(:last_name, :preferred_name).page(params[:page])
   end
 
   def show

@@ -19,6 +19,13 @@ html lang="en-us"
                 = link_to title, title_url
               - if subtitle
                 p.lead = subtitle
+            .col-sm-6
+              -if Admin::UserPolicy.new(current_user, User).index?
+                .search_form.form-top-margin
+                  .search_input
+                    = fa_icon 'search'
+                    = form_tag admin_users_path, method: :get do
+                      = text_field_tag 'q', params[:q], placeholder: 'Search names, emails, UUIDs...', tabindex: '1'
 
       .wrapper-site
         - all_messages.each do |message|

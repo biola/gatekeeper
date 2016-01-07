@@ -14,7 +14,7 @@ class Admin::ApplicationController < ::ApplicationController
   end
 
   def subtitle
-    nil
+    'Manage non-biolan user accounts'
   end
 
   protected

@@ -7,7 +7,7 @@ class Admin::ApplicationPolicy
   end
 
   def index?
-    user.admin? || user.developer?
+    user.try(:admin?) || user.try(:developer?)
   end
 
   alias :show? :index?
