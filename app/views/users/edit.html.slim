@@ -21,8 +21,11 @@
         h2 Change Password
         = form_for @user, url: user_path do |f|
           .form-group
+            = label_tag :current_password
+            = password_field_tag :current_password, nil, class: 'form-control'
+          .form-group
             = f.label :password do
-              ' Password
+              ' New Password
               small.text-muted twice
             .row
               .col-sm-6

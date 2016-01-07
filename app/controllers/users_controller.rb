@@ -45,7 +45,10 @@ class UsersController < ApplicationController
 
     authorize @user
 
-    if @user.update user_params
+    if !@user.authenticate(params[:current_password])
+      flash.now.alert = 'Invalid current password'
+      render :edit
+    elsif @user.update user_params
       redirect_to edit_user_path, notice: 'Changes saved'
     else
       render :edit
