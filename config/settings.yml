@@ -4,6 +4,7 @@ app:
 
 users:
   new_before: 2592000 # 30 days
+  reject_email_domain: "@biola.edu"
 
 secret_token: # Set in settings.local.yml
 

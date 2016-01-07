@@ -8,7 +8,10 @@ class NonBiolan < User
   has_secure_password
 
   validates :password, length: {minimum: Settings.password.min_length}, allow_nil: true
-  # TODO: validate not an @biola.edu email
+  validates :email, format: {
+    without: Regexp.new(Settings.users.reject_email_domain),
+    message: "is not allowed to be from #{Settings.users.reject_email_domain}"
+  }
 
   before_create :set_confirmation_key
 
