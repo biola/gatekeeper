@@ -5,6 +5,8 @@ app:
 users:
   new_before: 2592000 # 30 days
 
+secret_token: # Set in settings.local.yml
+
 cas:
   url: "https://login.biola.edu/cas"
 

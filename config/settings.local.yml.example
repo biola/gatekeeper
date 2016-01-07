@@ -1,2 +1,4 @@
 sentry:
   url: # Set me!
+
+secret_token: # Set me!
