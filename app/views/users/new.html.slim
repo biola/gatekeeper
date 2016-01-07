@@ -6,7 +6,7 @@
         = form_tag sessions_path do
           .form-group
             = label_tag :email
-            = text_field_tag 'session[email]', flash[:login_email], id: :email, class: 'form-control'
+            = email_field_tag 'session[email]', flash[:login_email], id: :email, class: 'form-control'
           .form-group
             = label_tag :password
             = password_field_tag 'session[password]', nil, id: :password, class: 'form-control'
