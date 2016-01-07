@@ -12,6 +12,7 @@
 //
 //= require biola-frontend-toolkit
 //= require zxcvbn
+//= require_tree ./plugins
 //= require_tree ./resources
 //= require_self
 

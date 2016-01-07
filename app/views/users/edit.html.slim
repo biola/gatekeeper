@@ -21,11 +21,18 @@
         h2 Change Password
         = form_for @user, url: user_path do |f|
           .form-group
-            = f.label :password
-            = f.password_field :password, class: 'form-control'
-          .form-group
-            = f.label :password_confirmation
-            = f.password_field :password_confirmation, class: 'form-control'
+            = f.label :password do
+              ' Password
+              small.text-muted twice
+            .row
+              .col-sm-6
+                = f.password_field :password, class: 'form-control'
+              .col-sm-6
+                = f.password_field :password_confirmation, class: 'form-control'
+            .progress style="margin-top: 10px;"
+              .progress-bar role="progressbar" style="width: 0%;"
+                | very weak
+
           = f.submit 'Save', class: 'btn btn-primary'
 
         h2 Delete Account
