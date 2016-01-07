@@ -1,6 +1,6 @@
 class Admin::UsersController < Admin::ApplicationController
   def index
-    @users = policy_scope(NonBiolan)
+    @users = policy_scope(NonBiolan).asc(:last_name, :first_name).page(params[:page])
   end
 
   def show

@@ -28,3 +28,5 @@
               - if user.deleted?
                 span.text-danger> title="Deleted" data-toggle="tooltip"
                   = fa_icon 'trash-o'
+
+      = paginate @users
