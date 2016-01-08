@@ -1,9 +1,4 @@
-# By default CASino::ApplicationController inherits from ApplicationController
-# and uses the applicatoin layout. But we want to isolate it. So we're
-# overriding that behaviour.
-class CASino::ApplicationController < ActionController::Base
-  layout 'casino'
-
+class CAS::ApplicationController < ActionController::Base
   unless Rails.env.development?
     rescue_from ActionView::MissingTemplate, with: :missing_template
   end

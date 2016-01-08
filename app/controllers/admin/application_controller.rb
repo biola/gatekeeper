@@ -1,4 +1,4 @@
-class Admin::ApplicationController < ::ApplicationController
+class Admin::ApplicationController < ::Gatekeeper::ApplicationController
   before_action :authenticate!
 
   def current_user

@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class UsersController < Gatekeeper::ApplicationController
   include Session
 
   def show

@@ -1,4 +1,4 @@
-class SessionsController < ApplicationController
+class SessionsController < Gatekeeper::ApplicationController
   include Session
 
   def create

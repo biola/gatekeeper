@@ -1,4 +1,4 @@
-class ForgotPasswordsController < ApplicationController
+class ForgotPasswordsController < Gatekeeper::ApplicationController
   def new
     authorize nil
   end

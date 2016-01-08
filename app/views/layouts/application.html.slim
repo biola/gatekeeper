@@ -1,41 +1,14 @@
 doctype html
-html lang="en-us"
+html
   head
-    title Accounts
-    / frontend_toolkit/head includes default html head tags and csrf_meta_tags
-    = render 'frontend_toolkit/head', title: 'Accounts'
-    = stylesheet_link_tag 'application', media: 'all'
+  title = CASino.config.frontend[:sso_name]
+  meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+  = stylesheet_link_tag    "application-casino", :media => "all"
+  = javascript_include_tag "application-casino"
+  = csrf_meta_tags
+  = favicon_link_tag 'favicon.png', type: 'image/png'
+  = favicon_link_tag 'logo.png', type: 'image/png', rel: 'logo'
 
-  body class="#{controller_name} #{action_name}"
-    = render 'layouts/account_list'
-    = render 'frontend_toolkit/biola_header', enable_auth: true
+body
 
-    #site_header
-      .page-segment.segment-bold style="padding: 10px 0"
-        .container
-          .row
-            .col-sm-6
-              h1.site-title
-                = link_to title, title_url
-              - if subtitle
-                p.lead = subtitle
-            .col-sm-6
-              -if Admin::UserPolicy.new(current_user, User).index?
-                .search_form.form-top-margin
-                  .search_input
-                    = fa_icon 'search'
-                    = form_tag admin_users_path, method: :get do
-                      = text_field_tag 'q', params[:q], placeholder: 'Search names, emails, UUIDs...', tabindex: '1'
-
-      .wrapper-site
-        - all_messages.each do |message|
-          .alert class="alert-#{message.type}"
-            button.close type="button" data-dismiss="alert"
-              span &times;
-            = fa_icon message.icon, text: message.text
-
-        = yield
-
-      = render 'frontend_toolkit/global_marketing_footer'
-
-      = javascript_include_tag 'application'
+  = yield
