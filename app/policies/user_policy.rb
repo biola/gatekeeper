@@ -1,6 +1,6 @@
 class UserPolicy < ApplicationPolicy
     def show?
-      user == record
+      user.present? && user == record
     end
 
     def new?

@@ -4,6 +4,6 @@ class EmailConfirmationPolicy < ApplicationPolicy
   end
 
   def resend?
-    record == user
+    user.present? && record == user
   end
 end
