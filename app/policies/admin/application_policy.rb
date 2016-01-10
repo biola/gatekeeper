@@ -30,7 +30,11 @@ class Admin::ApplicationPolicy
     end
 
     def resolve
-      scope
+      if user.try(:admin?) || user.try(:developer?)
+        scope
+      else
+        scope.none
+      end
     end
   end
 end
