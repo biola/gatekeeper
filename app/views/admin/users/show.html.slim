@@ -11,6 +11,9 @@
         dt Last name
         dd = @user.last_name
 
+        dt Username
+        dd = @user.username
+
         dt Email
         dd
           => mail_to(@user.email, @user.email)

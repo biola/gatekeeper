@@ -4,14 +4,14 @@ class SessionsController < Gatekeeper::ApplicationController
   def create
     authorize session
 
-    user = User.active.where(email: session_params[:email]).first
+    user = User.active.where(username: session_params[:username]).first
 
     if user && user.authenticate(session_params[:password])
       login! user
       redirect_to user_path, notice: "You've been logged in"
     else
-      flash[:login_email] = session_params[:email]
-      redirect_to new_user_path, alert: "Invalid email or password"
+      flash[:login_username] = session_params[:username]
+      redirect_to new_user_path, alert: "Invalid username or password"
     end
   end
 
@@ -24,7 +24,7 @@ class SessionsController < Gatekeeper::ApplicationController
   private
 
   def session_params
-    params.require(:session).permit :email, :password
+    params.require(:session).permit :username, :password
   end
 
   def policy(order)

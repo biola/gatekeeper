@@ -5,8 +5,8 @@
         h2 Login
         = form_tag sessions_path do
           .form-group
-            = label_tag :email
-            = email_field_tag 'session[email]', flash[:login_email], id: :email, class: 'form-control', tabindex: 1
+            = label_tag :username
+            = email_field_tag 'session[username]', flash[:login_username], id: :username, class: 'form-control', tabindex: 1, placeholder: 'bob@example.com'
           .form-group
             = label_tag :password
             = password_field_tag 'session[password]', nil, id: :password, class: 'form-control'

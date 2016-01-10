@@ -16,6 +16,13 @@
             = f.text_field :last_name, class: 'form-control'
 
           .form-group
+            = f.label :username
+            #username_warning.alert.alert-warning style="display: none;"
+              i.fa.fa-warning>
+              | Changing an account's username may cause orphaned data in other Biola applications
+            = f.email_field :username, class: 'form-control', data: {warning: '#username_warning'}
+
+          .form-group
             = f.label :email
             = f.email_field :email, class: 'form-control'
 

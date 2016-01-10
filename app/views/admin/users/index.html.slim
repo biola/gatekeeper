@@ -6,12 +6,14 @@
       table.table.table-stripped
         tr
           th Name
-          th Email
+          th Username
+          th User For
           th Status
         - @users.each do |user|
           tr
             td = link_to user.name, admin_user_path(user)
-            td = user.email
+            td = user.username
+            td = time_ago_in_words(user.created_at)
             td
               - if user.active?
                 span.text-success> title="Active" data-toggle="tooltip"
