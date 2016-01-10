@@ -45,7 +45,7 @@ class UsersController < Gatekeeper::ApplicationController
 
     authorize @user
 
-    if !@user.authenticate(params[:current_password])
+    if user_params[:password].present? && !@user.authenticate(params[:current_password])
       flash.now.alert = 'Invalid current password'
       render :edit
     elsif @user.update user_params
