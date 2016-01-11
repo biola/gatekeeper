@@ -4,7 +4,7 @@ class SessionsController < Gatekeeper::ApplicationController
   def create
     authorize session
 
-    user = User.active.where(username: session_params[:username]).first
+    user = User.where(username: session_params[:username]).first
 
     if user && user.authenticate(session_params[:password])
       login! user
