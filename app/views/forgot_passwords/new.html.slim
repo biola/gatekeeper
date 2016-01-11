@@ -10,5 +10,5 @@
         = form_tag reset_password_path, method: :patch do
           .form-group
             = label_tag :email
-            = text_field_tag :email, nil, class: 'form-control'
-          = submit_tag 'Reset Password', class: 'btn btn-primary'
+            = text_field_tag :email, nil, class: 'form-control', tabindex: 1
+          = submit_tag 'Reset Password', class: 'btn btn-primary', tabindex: 2

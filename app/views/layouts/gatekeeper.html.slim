@@ -18,13 +18,6 @@ html lang="en-us"
               h1.site-title
                 = link_to Settings.app.name, root_path
                 p.lead Manage your Biola University account
-            .col-sm-6
-              -if Admin::UserPolicy.new(current_user, User).index?
-                .search_form.form-top-margin
-                  .search_input
-                    = fa_icon 'search'
-                    = form_tag admin_users_path, method: :get do
-                      = text_field_tag 'q', params[:q], placeholder: 'Search names, emails, UUIDs...', tabindex: '1'
 
       .wrapper-site
         - all_messages.each do |message|

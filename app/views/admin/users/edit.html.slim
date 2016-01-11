@@ -9,22 +9,22 @@
         = form_for @user, url: admin_user_path(@user) do |f|
           .form-group
             = f.label :first_name
-            = f.text_field :first_name, class: 'form-control'
+            = f.text_field :first_name, class: 'form-control', tabindex: 2
 
           .form-group
             = f.label :last_name
-            = f.text_field :last_name, class: 'form-control'
+            = f.text_field :last_name, class: 'form-control', tabindex: 3
 
           .form-group
             = f.label :username
             #username_warning.alert.alert-warning style="display: none;"
               i.fa.fa-warning>
               | Changing an account's username may cause orphaned data in other Biola applications
-            = f.email_field :username, class: 'form-control', data: {warning: '#username_warning'}
+            = f.email_field :username, class: 'form-control', data: {warning: '#username_warning'}, tabindex: 4
 
           .form-group
             = f.label :email
-            = f.email_field :email, class: 'form-control'
+            = f.email_field :email, class: 'form-control', tabindex: 5
 
           .form-group
             = f.label :password do
@@ -32,19 +32,19 @@
               small.text-muted twice
             .row
               .col-sm-6
-                = f.password_field :password, class: 'form-control'
+                = f.password_field :password, class: 'form-control', tabindex: 6
               .col-sm-6
-                = f.password_field :password_confirmation, class: 'form-control'
+                = f.password_field :password_confirmation, class: 'form-control', tabindex: 7
 
             .progress style="margin-top: 10px;"
               .progress-bar role="progressbar" style="width: 0%;"
                 | very weak
 
           .form-group
-            => f.check_box :confirmed
+            => f.check_box :confirmed, tabindex: 8
             = f.label :confirmed, 'Email confirmed'
 
           .buttons
-            = link_to 'Back', admin_users_path, class: 'btn btn-default'
+            = link_to 'Back', admin_users_path, class: 'btn btn-default', tabindex: 10
             .pull-right
-              = f.submit 'Update User', class: 'btn btn-primary'
+              = f.submit 'Update User', class: 'btn btn-primary', tabindex: 9

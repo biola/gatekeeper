@@ -24,7 +24,7 @@ html lang="en-us"
                   .search_input
                     = fa_icon 'search'
                     = form_tag search_path, method: :get do
-                      = text_field_tag 'q', params[:q], placeholder: 'Search names, emails, UUIDs...', tabindex: '1'
+                      = text_field_tag 'q', params[:q], placeholder: 'Search names, emails, UUIDs...', tabindex: 1
       #menu
         .container
           ul.list-inline

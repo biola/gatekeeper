@@ -1,12 +1,14 @@
 .page-segment
   .container
     .row
-      h2 Delete Your Account?
+      .col-md-12
+        h2 Delete Your Account?
 
-      p
-        strong Are you sure you want to delete your account?
-        br
-        | Your will no longer be able to login to any Biola sites with this account.
+        p
+          strong Are you sure you want to delete your account?
+          br
+          | Your will no longer be able to login to any Biola sites with this account.
 
-      = form_tag user_path, method: :delete do
-        = submit_tag 'Delete Account', class: 'btn btn-danger'
+        = form_tag user_path, method: :delete do
+          => link_to 'Back', edit_user_path, class: 'btn btn-default', tabindex: 1
+          = submit_tag 'Delete Account', class: 'btn btn-danger', tabindex: 2

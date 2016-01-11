@@ -12,35 +12,35 @@
             = f.text_field :first_name, class: 'form-control', tabindex: 1
           .form-group
             = f.label :last_name
-            = f.text_field :last_name, class: 'form-control'
+            = f.text_field :last_name, class: 'form-control', tabindex: 2
           .form-group
             = f.label :email, 'Contact Email'
             #email_warning.alert.alert-warning style="display: none;"
               i.fa.fa-warning>
               | You can change your email address but your old email address in the username field above will continue to be the username you must use to login.
-            = f.email_field :email, class: 'form-control', data: {warning: '#email_warning'}
-          = f.submit 'Save', class: 'btn btn-primary'
+            = f.email_field :email, class: 'form-control', data: {warning: '#email_warning'}, tabindex: 3
+          = f.submit 'Save', class: 'btn btn-primary', tabindex: 4
 
       .col-md-6
         h2 Change Password
         = form_for @user, url: user_path do |f|
           .form-group
             = label_tag :current_password
-            = password_field_tag :current_password, nil, class: 'form-control'
+            = password_field_tag :current_password, nil, class: 'form-control', tabindex: 5
           .form-group
             = f.label :password do
               ' New Password
               small.text-muted twice
             .row
               .col-sm-6
-                = f.password_field :password, class: 'form-control'
+                = f.password_field :password, class: 'form-control', tabindex: 6
               .col-sm-6
-                = f.password_field :password_confirmation, class: 'form-control'
+                = f.password_field :password_confirmation, class: 'form-control', tabindex: 7
             .progress style="margin-top: 10px;"
               .progress-bar role="progressbar" style="width: 0%;"
                 | very weak
 
-          = f.submit 'Save', class: 'btn btn-primary'
+          = f.submit 'Save', class: 'btn btn-primary', tabindex: 8
 
         h2 Delete Account
-        = link_to 'Delete Account', delete_user_path, class: 'btn btn-danger'
+        = link_to 'Delete Account', delete_user_path, class: 'btn btn-danger', tabindex: 9
