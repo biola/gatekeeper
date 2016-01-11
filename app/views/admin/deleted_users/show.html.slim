@@ -1,10 +1,13 @@
 .page-segment
   .container
     .row
-      .col-sm-12
+      .col-sm-9
         h2 Deleted User
 
         dl.dl-horizontal
+          dt UUID
+          dd = @deleted_user.uuid
+
           dt First name
           dd = @deleted_user.first_name
 
@@ -24,11 +27,18 @@
               span.text-warning title="Unconfirmed" data-toggle="tooltip"
                 = fa_icon 'clock-o'
 
-          dt UUID
-          dd = @deleted_user.uuid
+        .buttons
+          = link_to 'Back', admin_deleted_users_path, class: 'btn btn-default'
+
+      aside.col-md-3
+        dl
+          dt User Agent
+          dd
+            code = @deleted_user.user_agent
+
+          dt IP Address
+          dd
+            code = @deleted_user.ip_address
 
           dt Deleted
           dd = @deleted_user.created_at.try(:to_s, :long)
-
-        .buttons
-          = link_to 'Back', admin_deleted_users_path, class: 'btn btn-default'

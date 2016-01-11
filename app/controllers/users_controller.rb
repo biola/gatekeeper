@@ -23,6 +23,8 @@ class UsersController < Gatekeeper::ApplicationController
 
   def create
     @user = NonBiolan.new(user_params)
+    @user.user_agent = request.user_agent
+    @user.ip_address = request.ip
 
     authorize @user
 

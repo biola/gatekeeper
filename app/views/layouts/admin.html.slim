@@ -6,7 +6,7 @@ html lang="en-us"
     = render 'frontend_toolkit/head', title: 'Accounts'
     = stylesheet_link_tag 'application', media: 'all'
 
-  body class="#{controller_name} #{action_name}"
+  body class="admin #{controller_name} #{action_name}"
     = render 'layouts/account_list'
     = render 'frontend_toolkit/biola_header', enable_auth: true
 

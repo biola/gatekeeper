@@ -20,6 +20,8 @@ class User
   field :email, type: String
   field :first_name, type: String
   field :last_name, type: String
+  field :user_agent, type: String # from when the account was created
+  field :ip_address, type: String # from when the account was created
 
   validates :email, :first_name, :last_name, presence: true
   validates :email, uniqueness: true, format: {with: VALID_EMAIL_MATCHER}

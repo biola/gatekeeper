@@ -22,7 +22,9 @@ class NonBiolan < User
   alias :active? :confirmed?
 
   def backup_and_destroy!
-    DeletedUser.create!(attributes.slice(:uuid, :username, :email, :first_name, :last_name, :confirmed)).tap do
+    shared_attrs = [:uuid, :username, :email, :first_name, :last_name, :confirmed, :user_agent, :ip_address]
+
+    DeletedUser.create!(attributes.slice(*shared_attrs)).tap do
       destroy!
     end
   end
