@@ -20,21 +20,14 @@ class User
   field :email, type: String
   field :first_name, type: String
   field :last_name, type: String
-  field :deleted, type: Boolean
 
   validates :email, :first_name, :last_name, presence: true
   validates :email, uniqueness: true, format: {with: VALID_EMAIL_MATCHER}
 
   before_save :set_uuid, :set_username
 
-  scope :active, -> { where(:deleted.ne => true) }
-
   def name
     [first_name, last_name].reject(&:blank?).join (' ')
-  end
-
-  def active?
-    !deleted?
   end
 
   def new?

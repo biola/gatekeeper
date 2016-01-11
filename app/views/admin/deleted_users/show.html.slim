@@ -1,0 +1,34 @@
+.page-segment
+  .container
+    .row
+      .col-sm-12
+        h2 Deleted User
+
+        dl.dl-horizontal
+          dt First name
+          dd = @deleted_user.first_name
+
+          dt Last name
+          dd = @deleted_user.last_name
+
+          dt Username
+          dd = @deleted_user.username
+
+          dt Email
+          dd
+            => mail_to(@deleted_user.email, @deleted_user.email)
+            - if @deleted_user.confirmed?
+              span.text-success title="Confirmed" data-toggle="tooltip"
+                = fa_icon 'check'
+            - else
+              span.text-warning title="Unconfirmed" data-toggle="tooltip"
+                = fa_icon 'clock-o'
+
+          dt UUID
+          dd = @deleted_user.uuid
+
+          dt Deleted
+          dd = @deleted_user.created_at.try(:to_s, :long)
+
+        .buttons
+          = link_to 'Back', admin_deleted_users_path, class: 'btn btn-default'

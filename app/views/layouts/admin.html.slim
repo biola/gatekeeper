@@ -1,7 +1,7 @@
 doctype html
 html lang="en-us"
   head
-    title Accounts
+    title Accounts Admin
     / frontend_toolkit/head includes default html head tags and csrf_meta_tags
     = render 'frontend_toolkit/head', title: 'Accounts'
     = stylesheet_link_tag 'application', media: 'all'
@@ -16,15 +16,20 @@ html lang="en-us"
           .row
             .col-sm-6
               h1.site-title
-                = link_to Settings.app.name, root_path
-                p.lead Manage your Biola University account
+                = link_to "#{Settings.app.name}", admin_root_path
+                p.lead Manage non-Biolan user accounts
             .col-sm-6
               -if Admin::UserPolicy.new(current_user, User).index?
                 .search_form.form-top-margin
                   .search_input
                     = fa_icon 'search'
-                    = form_tag admin_users_path, method: :get do
+                    = form_tag search_path, method: :get do
                       = text_field_tag 'q', params[:q], placeholder: 'Search names, emails, UUIDs...', tabindex: '1'
+      #menu
+        .container
+          ul.list-inline
+            li = link_to 'Users', admin_users_path, class: ('active' if controller_name == 'users')
+            li = link_to 'Deleted Users', admin_deleted_users_path, class: ('active' if controller_name == 'deleted_users')
 
       .wrapper-site
         - all_messages.each do |message|

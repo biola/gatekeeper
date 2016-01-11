@@ -1,20 +1,12 @@
 class Admin::ApplicationController < ::Gatekeeper::ApplicationController
   before_action :authenticate!
 
+  layout 'admin'
+
+  helper_method :search_path
+
   def current_user
     @current_user ||= Admin::CurrentUserPresenter.new(session)
-  end
-
-  def title
-    "#{Settings.app.name} Admin"
-  end
-
-  def title_url
-    admin_root_url
-  end
-
-  def subtitle
-    'Manage non-biolan user accounts'
   end
 
   protected

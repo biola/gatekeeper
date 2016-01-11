@@ -1,40 +1,38 @@
 .page-segment
   .container
     .row
-      h2 = @user.name
-      span.uuid.text-muted UUID: #{@user.uuid}
+      .col-md-12
+        h2 = @user.name
+        span.uuid.text-muted UUID: #{@user.uuid}
 
-      dl.dl-horizontal
-        dt First name
-        dd = @user.first_name
+        dl.dl-horizontal
+          dt First name
+          dd = @user.first_name
 
-        dt Last name
-        dd = @user.last_name
+          dt Last name
+          dd = @user.last_name
 
-        dt Username
-        dd = @user.username
+          dt Username
+          dd = @user.username
 
-        dt Email
-        dd
-          => mail_to(@user.email, @user.email)
-          - if @user.confirmed?
-            span.text-success title="Confirmed" data-toggle="tooltip"
-              = fa_icon 'check'
-          - else
-            span.text-warning title="Unconfirmed" data-toggle="tooltip"
-              = fa_icon 'clock-o'
+          dt Email
+          dd
+            => mail_to(@user.email, @user.email)
+            - if @user.confirmed?
+              span.text-success title="Confirmed" data-toggle="tooltip"
+                = fa_icon 'check'
+            - else
+              span.text-warning title="Unconfirmed" data-toggle="tooltip"
+                = fa_icon 'clock-o'
 
-        dt Created
-        dd = @user.created_at.try(:to_s, :long)
+          dt Created
+          dd = @user.created_at.try(:to_s, :long)
 
-        dt Updated
-        dd = @user.updated_at.try(:to_s, :long)
+          dt Updated
+          dd = @user.updated_at.try(:to_s, :long)
 
-      .buttons
-        => link_to 'Edit User', edit_admin_user_path(@user), class: 'btn btn-primary'
-        - if @user.deleted?
-          = form_for @user, url: admin_user_path(@user), html: {style: 'display: inline;'} do |f|
-            = f.hidden_field :deleted, value: false
-            = f.submit 'Undelete User', class: 'btn btn-warning'
-        - else
-          = link_to 'Delete User', admin_user_path(@user), method: :delete, data: {confirm: 'Mark user as deleted?'}, class: 'btn btn-default'
+        .buttons
+          => link_to 'Back', admin_users_path, class: 'btn btn-default'
+          .pull-right
+            => link_to 'Edit User', edit_admin_user_path(@user), class: 'btn btn-primary'
+            = link_to 'Delete User', admin_user_path(@user), method: :delete, data: {confirm: 'Delete user?'}, class: 'btn btn-danger'

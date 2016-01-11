@@ -5,6 +5,6 @@
       - if @user.confirmed?
         p Your email address, #{mail_to(@user.email, @user.email)}, has been confirmed. You can now login and use your new Biola University account.
         - if @return_url
-          =' link_to 'Login to Continue', cas_login_url(@return_url), class: 'btn btn-primary'
+          => link_to 'Login to Continue', cas_login_url(@return_url), class: 'btn btn-primary'
         - else
           = link_to 'Continue to My Account Page', user_path, class: 'btn btn-primary'

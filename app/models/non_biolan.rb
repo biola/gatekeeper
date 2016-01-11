@@ -19,8 +19,12 @@ class NonBiolan < User
     !confirmed?
   end
 
-  def active?
-    !deleted? && confirmed?
+  alias :active? :confirmed?
+
+  def backup_and_destroy!
+    DeletedUser.create!(attributes.slice(:uuid, :username, :email, :first_name, :last_name, :confirmed)).tap do
+      destroy!
+    end
   end
 
   private

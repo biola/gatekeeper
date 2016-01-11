@@ -1,0 +1,18 @@
+.page-segment
+  .container
+    .row
+      .col-sm-12
+        h2 Deleted Users
+
+        table.table.table-stripped
+          tr
+            th Name
+            th Username
+            th Deleted
+          - @deleted_users.each do |user|
+            tr
+              td = link_to user.name, admin_deleted_user_path(user)
+              td = user.username
+              td #{time_ago_in_words(user.created_at)} ago
+
+        = paginate @deleted_users

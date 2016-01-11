@@ -26,7 +26,7 @@ class Admin::UsersController < Admin::ApplicationController
       end
     end
 
-    @users = users.asc(:last_name, :preferred_name).page(params[:page])
+    @users = users.asc(:last_name, :first_name).page(params[:page])
   end
 
   def show
@@ -36,10 +36,6 @@ class Admin::UsersController < Admin::ApplicationController
 
     if @user.unconfirmed?
       flash.now.notice = "This user has not yet confirmed their email"
-    end
-
-    if @user.deleted?
-      flash.now.alert = "This user has been deleted"
     end
   end
 
@@ -66,17 +62,21 @@ class Admin::UsersController < Admin::ApplicationController
 
     authorize @user
 
-    msg = unless @user.update deleted: true
-      'Unable to delete user'
-    end
+    deleted_user = @user.backup_and_destroy!
 
-    redirect_to admin_user_path(@user), alert: msg
+    redirect_to admin_deleted_user_path(deleted_user), notice: 'User deleted'
+  end
+
+  protected
+
+  def search_path
+    admin_users_path
   end
 
   private
 
   def user_params
-    params.require(:non_biolan).permit :first_name, :last_name, :username, :email, :password, :password_confirmation, :confirmed, :deleted
+    params.require(:non_biolan).permit :first_name, :last_name, :username, :email, :password, :password_confirmation, :confirmed
   end
 
   def policy(user)

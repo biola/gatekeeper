@@ -17,21 +17,6 @@ class Gatekeeper::ApplicationController < ActionController::Base
     @user ||= User.where(id: session[:user_id]).first if session[:user_id].present?
   end
 
-  helper_method :title
-  def title
-    Settings.app.name
-  end
-
-  helper_method :title_url
-  def title_url
-    root_url
-  end
-
-  helper_method :subtitle
-  def subtitle
-    'Manage your Biola University account'
-  end
-
   protected
 
   def render_error_page(status)

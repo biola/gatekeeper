@@ -60,12 +60,9 @@ class UsersController < Gatekeeper::ApplicationController
 
     authorize @user
 
-    if @user.update deleted: true
-      logout!
-      redirect_to root_url, notice: 'Account deleted'
-    else
-      redirect_to edit_user_path, alert: 'Unable to delete account'
-    end
+    @user.backup_and_destroy!
+    logout!
+    redirect_to root_url, notice: 'Account deleted'
   end
 
   private

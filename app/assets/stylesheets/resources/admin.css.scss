@@ -11,3 +11,28 @@
     .search_input { margin-top: 10px; }
   }
 }
+
+#menu {
+  border-bottom: 1px solid #ccc;
+
+  ul {
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin: 0;
+      padding: 0;
+
+      a {
+        display: inline-block;
+        padding: 10px 20px;
+        color: black;
+
+        &.active, &:hover {
+          text-decoration: none;
+          background-color: #e6e6e6;
+        }
+      }
+    }
+  }
+}
