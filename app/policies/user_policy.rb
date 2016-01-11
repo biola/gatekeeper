@@ -10,5 +10,6 @@ class UserPolicy < ApplicationPolicy
     alias :create? :new?
     alias :edit? :show?
     alias :update? :show?
+    alias :delete? :show?
     alias :destroy? :show?
 end

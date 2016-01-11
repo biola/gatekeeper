@@ -1,0 +1,12 @@
+.page-segment
+  .container
+    .row
+      h2 Delete Your Account?
+
+      p
+        strong Are you sure you want to delete your account?
+        br
+        | Your will no longer be able to login to any Biola sites with this account.
+
+      = form_tag user_path, method: :delete do
+        = submit_tag 'Delete Account', class: 'btn btn-danger'

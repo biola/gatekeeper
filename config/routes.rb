@@ -8,7 +8,9 @@ Rails.application.routes.draw do
     root to: 'users#index'
   end
 
-  resource :user
+  resource :user do
+    get :delete, on: :member
+  end
   get 'create', to: 'users#new'
 
   resources :sessions, only: :create

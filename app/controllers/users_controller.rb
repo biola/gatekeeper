@@ -55,6 +55,12 @@ class UsersController < Gatekeeper::ApplicationController
     end
   end
 
+  def delete
+    load_user
+
+    authorize @user
+  end
+
   def destroy
     load_user
 
