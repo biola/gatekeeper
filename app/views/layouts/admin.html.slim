@@ -16,7 +16,7 @@ html lang="en-us"
           .row
             .col-sm-6
               h1.site-title
-                = link_to "#{Settings.app.name}", admin_root_path
+                = link_to "#{Settings.app.name} Admin", admin_root_path
                 p.lead Manage non-Biolan user accounts
             .col-sm-6
               -if Admin::UserPolicy.new(current_user, User).index?
