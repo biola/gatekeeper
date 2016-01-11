@@ -40,5 +40,8 @@
           dd
             code = @deleted_user.ip_address
 
+          dt Confirmed
+          dd = @deleted_user.confirmed_at.try(:to_s, :long) || content_tag(:span, 'Unconfirmed', class: 'text-muted')
+
           dt Deleted
           dd = @deleted_user.created_at.try(:to_s, :long)

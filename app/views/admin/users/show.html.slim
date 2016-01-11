@@ -41,6 +41,9 @@
           dt Created
           dd = @user.created_at.try(:to_s, :long)
 
+          dt Confirmed
+          dd = @user.confirmed_at.try(:to_s, :long) || content_tag(:span, 'Unconfirmed', class: 'text-muted')
+
           dt Updated
           dd = @user.updated_at.try(:to_s, :long)
 

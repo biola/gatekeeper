@@ -76,7 +76,7 @@ class Admin::UsersController < Admin::ApplicationController
   private
 
   def user_params
-    params.require(:non_biolan).permit :first_name, :last_name, :username, :email, :password, :password_confirmation, :confirmed
+    params.require(:non_biolan).permit :first_name, :last_name, :username, :email, :password, :password_confirmation, :confirmed_at
   end
 
   def policy(user)

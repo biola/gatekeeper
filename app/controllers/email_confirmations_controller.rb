@@ -11,7 +11,7 @@ class EmailConfirmationsController < Gatekeeper::ApplicationController
     elsif @user.confirmed?
       flash.now.alert = 'Your email address has already been confirmed.'
     else
-      @user.update! confirmed: true
+      @user.update! confirmed_at: DateTime.now
       login! @user
       flash.now.notice = "Your email address #{@user.email} has been confirmed."
 

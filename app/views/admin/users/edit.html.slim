@@ -41,8 +41,8 @@
                 | very weak
 
           .form-group
-            => f.check_box :confirmed, tabindex: 8
-            = f.label :confirmed, 'Email confirmed'
+            => f.check_box :confirmed_at, DateTime.now, tabindex: 8
+            = f.label :confirmed_at, 'Email confirmed'
 
           .buttons
             = link_to 'Back', admin_users_path, class: 'btn btn-default', tabindex: 10

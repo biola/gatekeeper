@@ -7,9 +7,11 @@ class DeletedUser
   field :email, type: String
   field :first_name, type: String
   field :last_name, type: String
-  field :confirmed, type: Boolean
+  field :confirmed_at, type: DateTime
   field :user_agent, type: String # from when the original account was created
   field :ip_address, type: String # from when the original account was created
+
+  alias :confirmed? :confirmed_at?
 
   def name
     [first_name, last_name].reject(&:blank?).join (' ')

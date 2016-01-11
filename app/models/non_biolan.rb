@@ -3,7 +3,7 @@ class NonBiolan < User
 
   field :password_digest, type: String
   field :confirmation_key, type: String
-  field :confirmed, type: Boolean
+  field :confirmed_at, type: DateTime
 
   has_secure_password
 
@@ -15,14 +15,15 @@ class NonBiolan < User
 
   before_create :set_confirmation_key
 
+  alias :confirmed? :confirmed_at?
+  alias :active? :confirmed?
+
   def unconfirmed?
     !confirmed?
   end
 
-  alias :active? :confirmed?
-
   def backup_and_destroy!
-    shared_attrs = [:uuid, :username, :email, :first_name, :last_name, :confirmed, :user_agent, :ip_address]
+    shared_attrs = [:uuid, :username, :email, :first_name, :last_name, :confirmed_at, :user_agent, :ip_address]
 
     DeletedUser.create!(attributes.slice(*shared_attrs)).tap do
       destroy!
