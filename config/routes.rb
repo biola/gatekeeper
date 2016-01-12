@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  mount CASino::Engine => '/cas', :as => 'casino'
-
   namespace :admin do
     resources :users, except: [:new, :create]
     resources :deleted_users, only: [:index, :show]

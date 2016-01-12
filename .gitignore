@@ -1,6 +1,4 @@
 # Ignore local config files.
-/config/cas.yml
-/config/database.yml
 /config/mongoid.yml
 /config/newrelic.yml
 /config/settings.local.yml

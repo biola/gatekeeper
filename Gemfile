@@ -2,12 +2,6 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.2.5'
 
-# For CASino support
-gem 'casino'
-# The Github repo is just temporary until this PR gets merged https://github.com/digitalnatives/casino-moped_authenticator/pull/3
-gem 'casino-moped_authenticator', github: 'adamcrown/casino-moped_authenticator', ref: 'patch-1'
-gem 'sqlite3'
-
 gem 'bcrypt', '~> 3.1.7'
 gem 'biola_frontend_toolkit'
 gem 'biola_logs'

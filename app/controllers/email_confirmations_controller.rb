@@ -1,4 +1,4 @@
-class EmailConfirmationsController < Gatekeeper::ApplicationController
+class EmailConfirmationsController < ApplicationController
   include Session
 
   def confirm

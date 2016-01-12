@@ -1,4 +1,4 @@
-class Admin::ApplicationController < ::Gatekeeper::ApplicationController
+class Admin::ApplicationController < ::ApplicationController
   before_action :authenticate!
 
   layout 'admin'
