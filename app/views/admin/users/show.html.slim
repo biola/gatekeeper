@@ -5,7 +5,7 @@
         h2 = @user.name
 
     .row
-      .col-md-9
+      .col-md-8
         span.uuid.text-muted UUID: #{@user.uuid}
 
         dl.dl-horizontal
@@ -28,8 +28,11 @@
               span.text-warning title="Unconfirmed" data-toggle="tooltip"
                 = fa_icon 'clock-o'
 
-      aside.col-md-3
+      aside.col-md-4
         dl
+          dt Referrer
+          dd = link_to truncate(@user.referring_url, length: 50), @user.referring_url, title: @user.referring_url
+
           dt User Agent
           dd
             code = @user.user_agent
@@ -48,7 +51,7 @@
           dd = @user.updated_at.try(:to_s, :long)
 
     .row
-      .col-sm-9
+      .col-sm-8
         .buttons
           = link_to 'Back', admin_users_path, class: 'btn btn-default'
           .pull-right

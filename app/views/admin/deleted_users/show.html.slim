@@ -32,6 +32,9 @@
 
       aside.col-md-3
         dl
+          dt Referrer
+          dd = link_to truncate(@deleted_user.referring_url, length: 50), @deleted_user.referring_url, title: @deleted_user.referring_url
+
           dt User Agent
           dd
             code = @deleted_user.user_agent

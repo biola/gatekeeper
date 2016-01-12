@@ -4,6 +4,7 @@ class NonBiolan < User
   field :password_digest, type: String
   field :confirmation_key, type: String
   field :confirmed_at, type: DateTime
+  field :referring_url, type: String # on sign up
 
   has_secure_password
 
@@ -23,7 +24,7 @@ class NonBiolan < User
   end
 
   def backup_and_destroy!
-    shared_attrs = [:uuid, :username, :email, :first_name, :last_name, :confirmed_at, :user_agent, :ip_address]
+    shared_attrs = [:uuid, :username, :email, :first_name, :last_name, :confirmed_at, :user_agent, :ip_address, :referring_url]
 
     DeletedUser.create!(attributes.slice(*shared_attrs)).tap do
       destroy!

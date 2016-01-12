@@ -10,6 +10,7 @@ class DeletedUser
   field :confirmed_at, type: DateTime
   field :user_agent, type: String # from when the original account was created
   field :ip_address, type: String # from when the original account was created
+  field :referring_url, type: String # on sign up
 
   alias :confirmed? :confirmed_at?
 

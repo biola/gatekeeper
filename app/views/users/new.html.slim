@@ -17,6 +17,7 @@
       .col-sm-5
         h2 Create Account
         = form_for @user, url: user_path do |f|
+          = f.hidden_field :referring_url, value: session[:referring_url]
           .form-group
             = f.label :first_name
             = f.text_field :first_name, class: 'form-control', tabindex: 5

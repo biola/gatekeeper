@@ -18,6 +18,7 @@ class UsersController < ApplicationController
 
     authorize @user
 
+    session[:referring_url] ||= request.referrer
     session[:return_url] = params[:return] if params[:return].present?
   end
 
@@ -80,7 +81,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:non_biolan).permit :first_name, :last_name, :email, :password, :password_confirmation
+    params.require(:non_biolan).permit :first_name, :last_name, :email, :password, :password_confirmation, :referring_url
   end
 
   def policy(user)
