@@ -1,29 +1,4 @@
-#change_password_modal.modal.fade role="dialog" tabindex="-1"
-  .modal-dialog
-    .modal-content
-      = form_for @user, url: user_path do |f|
-        .modal-header
-          button.close type="button" data-dismiss="modal" &times;
-          h4 Change Password
-        .modal-body
-          .form-group
-            = label_tag :current_password
-            = password_field_tag :current_password, nil, class: 'form-control'
-          .form-group
-            = f.label :password do
-              ' New Password
-              small.text-muted twice
-            .row
-              .col-sm-6
-                = f.password_field :password, class: 'form-control'
-              .col-sm-6
-                = f.password_field :password_confirmation, class: 'form-control'
-            .progress style="margin-top: 10px;"
-              .progress-bar role="progressbar" style="width: 0%;"
-                | very weak
-        .modal-footer
-          button.btn.btn-default type="button" data-dismiss="modal" Cancel
-          = f.submit 'Change Password', class: 'btn btn-primary'
+= render 'change_password_dialog'
 
 .page-segment
   .container
