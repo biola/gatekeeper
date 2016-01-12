@@ -1,0 +1,27 @@
+h2 Create Account
+= form_for @user, url: user_path do |f|
+  = f.hidden_field :referring_url, value: session[:referring_url]
+  .form-group
+    = f.label :first_name
+    = f.text_field :first_name, class: 'form-control', tabindex: 5
+  .form-group
+    = f.label :last_name
+    = f.text_field :last_name, class: 'form-control', tabindex: 6
+  .form-group
+    = f.label :email
+    = f.email_field :email, class: 'form-control', tabindex: 7
+  .form-group
+    = f.label :password do
+      ' Password
+      small.text-muted twice
+    .row
+      .col-sm-6
+        = f.password_field :password, class: 'form-control', tabindex: 8
+      .col-sm-6
+        = f.password_field :password_confirmation, class: 'form-control', tabindex: 9
+
+    .progress style="margin-top: 10px;"
+      .progress-bar role="progressbar" style="width: 0%;"
+        | very weak
+
+  = f.submit 'Create Account', class: 'btn btn-primary', tabindex: 10

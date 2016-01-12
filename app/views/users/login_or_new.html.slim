@@ -1,0 +1,18 @@
+.page-segment
+  .container
+    .row
+      .col-sm-5
+        h2 Login
+        = form_tag sessions_path do
+          .form-group
+            = label_tag :username
+            = email_field_tag 'session[username]', flash[:login_username], id: :username, class: 'form-control', tabindex: 1, placeholder: 'bob@example.com'
+          .form-group
+            = label_tag :password
+            = password_field_tag 'session[password]', nil, id: :password, class: 'form-control', tabindex: 2
+            = link_to 'Forgot password?', forgot_password_path, tabindex: 3
+          = submit_tag 'Login', class: 'btn btn-primary', tabindex: 4
+      .col-sm-2
+        span.or or
+      .col-sm-5
+        = render 'new_form'

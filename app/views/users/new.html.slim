@@ -2,43 +2,4 @@
   .container
     .row
       .col-sm-5
-        h2 Login
-        = form_tag sessions_path do
-          .form-group
-            = label_tag :username
-            = email_field_tag 'session[username]', flash[:login_username], id: :username, class: 'form-control', tabindex: 1, placeholder: 'bob@example.com'
-          .form-group
-            = label_tag :password
-            = password_field_tag 'session[password]', nil, id: :password, class: 'form-control', tabindex: 2
-            = link_to 'Forgot password?', forgot_password_path, tabindex: 3
-          = submit_tag 'Login', class: 'btn btn-primary', tabindex: 4
-      .col-sm-2
-        span.or or
-      .col-sm-5
-        h2 Create Account
-        = form_for @user, url: user_path do |f|
-          = f.hidden_field :referring_url, value: session[:referring_url]
-          .form-group
-            = f.label :first_name
-            = f.text_field :first_name, class: 'form-control', tabindex: 5
-          .form-group
-            = f.label :last_name
-            = f.text_field :last_name, class: 'form-control', tabindex: 6
-          .form-group
-            = f.label :email
-            = f.email_field :email, class: 'form-control', tabindex: 7
-          .form-group
-            = f.label :password do
-              ' Password
-              small.text-muted twice
-            .row
-              .col-sm-6
-                = f.password_field :password, class: 'form-control', tabindex: 8
-              .col-sm-6
-                = f.password_field :password_confirmation, class: 'form-control', tabindex: 9
-
-            .progress style="margin-top: 10px;"
-              .progress-bar role="progressbar" style="width: 0%;"
-                | very weak
-
-          = f.submit 'Create Account', class: 'btn btn-primary', tabindex: 10
+        = render 'new_form'

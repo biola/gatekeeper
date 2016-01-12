@@ -12,14 +12,18 @@ class UsersController < ApplicationController
   end
 
   def new
-    redirect_to(user_path) if current_user.present?
-
     @user = NonBiolan.new
 
     authorize @user
 
-    session[:referring_url] ||= request.referrer
-    session[:return_url] = params[:return] if params[:return].present?
+    if current_user.present?
+      redirect_to user_path
+    else
+      session[:referring_url] ||= request.referrer
+      session[:return_url] = params[:return] if params[:return].present?
+
+      store_and_render_view create_path? ? :new : :login_or_new
+    end
   end
 
   def create
@@ -34,7 +38,7 @@ class UsersController < ApplicationController
       login! @user
       redirect_to user_path
     else
-      render :new
+      store_and_render_view flash[:view] || :login_or_new
     end
   end
 
@@ -78,6 +82,15 @@ class UsersController < ApplicationController
 
   def load_user
     @user ||= current_user
+  end
+
+  def create_path?
+    request.path =~ /\A\/create/
+  end
+
+  def store_and_render_view(view)
+    flash[:view] = view
+    render view
   end
 
   def user_params
