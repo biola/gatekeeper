@@ -30,14 +30,20 @@
 
       aside.col-md-4
         dl
-          dt Referrer
+          dt
+            ' Referrer
+            i.fa.fa-question-circle.text-muted title="Recorded on first visit" data-toggle="tooltip"
           dd = link_to truncate(@user.referring_url, length: 50), @user.referring_url, title: @user.referring_url
 
-          dt User Agent
+          dt
+            ' User Agent
+            i.fa.fa-question-circle.text-muted title="Recorded on account creation" data-toggle="tooltip"
           dd
             code = @user.user_agent
 
-          dt IP Address
+          dt
+            ' IP Address
+            i.fa.fa-question-circle.text-muted title="Recorded on account creation" data-toggle="tooltip"
           dd
             code = @user.ip_address
 
