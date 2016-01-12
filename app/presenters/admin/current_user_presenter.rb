@@ -22,7 +22,7 @@ class Admin::CurrentUserPresenter
         value = if cas_att.is_a? Array
           extra_attr(cas_att.first)
         else
-          extra_attr(cas_att.to_s).try(:first)
+          extra_attr(cas_att.to_s)
         end
 
         instance_variable_set "@#{att}", value
