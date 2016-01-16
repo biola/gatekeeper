@@ -6,7 +6,7 @@ class ForgotPasswordsController < ApplicationController
   def create
     authorize nil
 
-    if user = User.active.where(email: params[:email]).first
+    if user = NonBiolan.where(email: params[:email]).first
       # TODO: The gsub shouldn't be necessary once verison > 0.0.2 of Madgab is released
       password = Madgab.generate.gsub '_', ' '
 
