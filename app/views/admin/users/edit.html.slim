@@ -41,10 +41,11 @@
                 | very weak
 
           .form-group
-            => f.check_box :confirmed_at, DateTime.now, tabindex: 8
+            = f.hidden_field :confirmed_at, value: nil
+            => f.check_box :confirmed_at, {tabindex: 8}, f.object.confirmed_at.presence || DateTime.now, nil
             = f.label :confirmed_at, 'Email confirmed'
 
           .buttons
-            = link_to 'Back', admin_users_path, class: 'btn btn-default', tabindex: 10
+            = link_to 'Back', admin_user_path(@user), class: 'btn btn-default', tabindex: 10
             .pull-right
               = f.submit 'Update User', class: 'btn btn-primary', tabindex: 9
