@@ -24,7 +24,7 @@ class NonBiolan < User
   end
 
   def backup_and_destroy!
-    shared_attrs = [:uuid, :username, :email, :first_name, :last_name, :confirmed_at, :user_agent, :ip_address, :referring_url]
+    shared_attrs = %w{uuid username email first_name last_name confirmed_at user_agent ip_address referring_url}
 
     DeletedUser.create!(attributes.slice(*shared_attrs)).tap do
       destroy!
