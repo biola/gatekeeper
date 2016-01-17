@@ -1,0 +1,6 @@
+test:
+  clients:
+    default:
+      database: gatekeeper_test
+      hosts:
+        - localhost:27017

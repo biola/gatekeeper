@@ -25,6 +25,7 @@ html lang="en-us"
                     = fa_icon 'search'
                     = form_tag search_path, method: :get do
                       = text_field_tag 'q', params[:q], placeholder: 'Search names, emails, UUIDs...', tabindex: 1
+                      = submit_tag 'Search', class: 'hide'
       #menu
         .container
           ul.list-inline
