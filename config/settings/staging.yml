@@ -1,0 +1,6 @@
+trogdir:
+  scheme: https
+  host: api.staging.biola.edu
+  port: 443
+  script_name: directory
+  version: v1

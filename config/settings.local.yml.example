@@ -1,4 +1,8 @@
+secret_token: # Set me!
+
+trogdir:
+  access_id:
+  secret_key:
+
 sentry:
   url: # Set me!
-
-secret_token: # Set me!

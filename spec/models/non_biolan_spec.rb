@@ -11,6 +11,7 @@ describe NonBiolan do
   it { is_expected.to have_fields(:password_digest).of_type String }
   it { is_expected.to have_fields(:confirmation_key).of_type String }
   it { is_expected.to have_fields(:confirmed_at).of_type DateTime }
+  it { is_expected.to have_fields(:trogdir_uuid).of_type String }
   it { is_expected.to have_fields(:referring_url).of_type String }
   it { is_expected.to have_fields(:created_at).of_type Time }
   it { is_expected.to have_fields(:updated_at).of_type Time }

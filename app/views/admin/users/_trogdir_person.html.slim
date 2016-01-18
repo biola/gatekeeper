@@ -1,0 +1,22 @@
+- editable ||= false
+.panel.panel-default#trogdir_person
+  .panel-heading
+    - if editable
+      button.close type="button" data-dismiss="alert" data-target="#trogdir_person"
+        span &times;
+    strong = @user.trogdir_person.name
+  .panel-body
+    .media
+      .media-left
+        - if trogdir_person.photo_url.present?
+          img.id_photo.img-thumbnail.pull-left srctrogdir_person.photo_url style="max-width: 100px;"
+      .media-body
+        dl.dl-horizontal
+          dt Trogdir UUID
+          dd = trogdir_person.uuid
+          dt NetID
+          dd = trogdir_person.netid
+          dt Biola ID
+          dd = trogdir_person.biola_id
+          dt Email
+          dd = mail_to trogdir_person.email, trogdir_person.email

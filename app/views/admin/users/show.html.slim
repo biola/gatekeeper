@@ -28,6 +28,10 @@
               span.text-warning title="Unconfirmed" data-toggle="tooltip"
                 = fa_icon 'clock-o'
 
+        - if @user.trogdir_uuid?
+          h3 Associated Biolan
+          = render 'trogdir_person', trogdir_person: @user.trogdir_person
+
       aside.col-md-4
         dl
           dt

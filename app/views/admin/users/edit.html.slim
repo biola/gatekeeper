@@ -1,12 +1,11 @@
 .page-segment
   .container
-    .row
-      .col-md-12
-        h2 Edit #{@user.name}
-    .row
-      .col-md-6
-
-        = form_for @user, url: admin_user_path(@user) do |f|
+    = form_for @user, url: admin_user_path(@user) do |f|
+      .row
+        .col-md-12
+          h2 Edit #{@user.name}
+      .row
+        .col-md-6
           .form-group
             = f.label :first_name
             = f.text_field :first_name, class: 'form-control', tabindex: 2
@@ -45,6 +44,31 @@
             => f.check_box :confirmed_at, {tabindex: 8}, f.object.confirmed_at.presence || DateTime.now, nil
             = f.label :confirmed_at, 'Email confirmed'
 
+
+        .col-md-6
+          h3 Associated Biolan
+          - if @user.trogdir_uuid?
+            = f.hidden_field :trogdir_uuid, value: '', id: 'trogdir_uuid', disabled: true
+            = render 'trogdir_person', trogdir_person: @user.trogdir_person, editable: true
+          .form-group#trogdir_uuid_form
+            = label_tag :trogdir_id, @user.trogdir_uuid? ? 'Assign a Different Biolan' : 'Assign Biolan'
+            = hidden_field_tag :trogdir_id_type, 'uuid', id: 'id_type_field'
+            .input-group
+              = text_field_tag :trogdir_id, nil, class: 'form-control'
+              .input-group-btn
+                button.btn.btn-default.dropdown-toggle type="button" data-toggle="dropdown"
+                 span#id_type_label> Trogdir UUID
+                 span.caret
+                ul.dropdown-menu.dropdown-menu-right
+                  li
+                    a href="#" data-slug="uuid" Trogdir UUID
+                  li
+                    a href="#" data-slug="netid" NetID
+                  li
+                    a href="#" data-slug="biola_id" Biola ID
+
+      .row
+        .col-md-12
           .buttons
             = link_to 'Back', admin_user_path(@user), class: 'btn btn-default', tabindex: 10
             .pull-right

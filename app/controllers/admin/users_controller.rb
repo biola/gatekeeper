@@ -50,7 +50,13 @@ class Admin::UsersController < Admin::ApplicationController
 
     authorize @user
 
-    if @user.update user_params
+    user_prms = user_params
+    if params[:trogdir_id].present?
+      uuid = TrogdirPerson.new(params[:trogdir_id], params[:trogdir_id_type]).uuid
+      user_prms.merge! trogdir_uuid: uuid if uuid.present?
+    end
+
+    if @user.update user_prms
       redirect_to admin_user_path(@user), notice: 'User updated'
     else
       render :edit
@@ -76,7 +82,7 @@ class Admin::UsersController < Admin::ApplicationController
   private
 
   def user_params
-    params.require(:non_biolan).permit :first_name, :last_name, :username, :email, :password, :password_confirmation, :confirmed_at
+    params.require(:non_biolan).permit :first_name, :last_name, :username, :email, :password, :password_confirmation, :confirmed_at, :trogdir_uuid
   end
 
   def policy(user)

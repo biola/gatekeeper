@@ -4,6 +4,7 @@ class NonBiolan < User
   field :password_digest, type: String
   field :confirmation_key, type: String
   field :confirmed_at, type: DateTime
+  field :trogdir_uuid, type: String
   field :referring_url, type: String # on sign up
 
   has_secure_password
@@ -21,6 +22,10 @@ class NonBiolan < User
 
   def unconfirmed?
     !confirmed?
+  end
+
+  def trogdir_person
+    @trogdir_person ||= TrogdirPerson.new(trogdir_uuid) if trogdir_uuid?
   end
 
   def backup_and_destroy!
