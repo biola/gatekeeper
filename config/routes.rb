@@ -17,8 +17,7 @@ Rails.application.routes.draw do
   get '/confirm/:key', to: 'email_confirmations#confirm', as: :confirm_email
   get '/resend_confirmation', to: 'email_confirmations#resend', as: :resend_confirmation
 
-  get '/forgot_password', to: 'forgot_passwords#new', as: :forgot_password
-  patch '/reset_password', to: 'forgot_passwords#create', as: :reset_password
+  resources :forgot_passwords, only: [:new, :create, :edit, :update]
 
   # this is just a convenience to create a named route to rack-cas' logout
   get '/logout' => -> env { [404, { 'Content-Type' => 'text/html' }, ['Rack::CAS should have caught this']] }, as: :cas_logout

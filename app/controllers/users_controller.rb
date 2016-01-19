@@ -59,6 +59,10 @@ class UsersController < ApplicationController
     elsif @user.update user_params
       redirect_to edit_user_path, notice: 'Changes saved'
     else
+      if user_params[:password].present?
+        flash.now[:show_password_dialog] = true
+      end
+
       render :edit
     end
   end

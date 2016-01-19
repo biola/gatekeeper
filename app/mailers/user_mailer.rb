@@ -4,9 +4,9 @@ class UserMailer < ApplicationMailer
     mail to: @user.email, subject: 'Please confirm your email address'
   end
 
-  def password_reset(user, password)
-    @user = user
-    @password = password
-    mail to: @user.email, subject: 'Your password has been reset'
+  def password_reset(forgot_password)
+    @forgot_password = forgot_password
+    @user = forgot_password.non_biolan
+    mail to: @user.email, subject: 'Your password reset link'
   end
 end

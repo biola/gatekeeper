@@ -31,6 +31,7 @@ sentry:
 
 password:
   min_length: 8
+  reset_expire: 86400 # 1 day
 
 urn_namespaces:
   - "urn:biola:apps:gatekeeper:"

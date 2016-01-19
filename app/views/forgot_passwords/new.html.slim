@@ -3,11 +3,11 @@
     .row
       .col-xs-12
         h2 Forgot Password
-        p If you've forgotten your password, simply enter the email address associated with your account below and a new password will be sent to you.
+        p If you've forgotten your password, simply enter the email address associated with your account below and a password reset link will be sent to you.
 
     .row
       .col-xs-4
-        = form_tag reset_password_path, method: :patch do
+        = form_tag forgot_passwords_path, method: :post do
           .form-group
             = label_tag :email
             = text_field_tag :email, nil, class: 'form-control', tabindex: 1

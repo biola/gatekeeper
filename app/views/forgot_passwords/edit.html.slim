@@ -1,0 +1,23 @@
+.page-segment
+  .container
+    .row
+      .col-xs-12
+        h2 Reset Forgotten Password
+        p Enter a new password below to update your forgotten password.
+
+    .row
+      .col-xs-6
+        = form_for @forgot_password.non_biolan, url: forgot_password_path(@forgot_password.key) do |f|
+          .form-group
+            = f.label :password do
+              ' New Password
+              small.text-muted twice
+            .row
+              .col-sm-6
+                = f.password_field :password, class: 'form-control'
+              .col-sm-6
+                = f.password_field :password_confirmation, class: 'form-control'
+            .progress style="margin-top: 10px;"
+              .progress-bar role="progressbar" style="width: 0%;"
+                | very weak
+          = f.submit 'Change Password', class: 'btn btn-primary'
